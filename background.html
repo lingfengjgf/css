@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      background: #f4f4f4;
+      font-size: 20px;
+    }
+
+    .content {
+      margin-bottom: 30px;
+    }
+
+    .item {
+      text-align: center;
+      display: inline-block;
+      margin-right: 20px;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    .item-box {
+      width: 200px;
+      height: 200px;
+    }
+  </style>
+  <style>
+    /* 透明渐变 */
+    .d1 {
+      background: linear-gradient(#e79898, transparent);
+    }
+
+    /* 实色过渡 */
+    .d2 {
+      background: linear-gradient(45deg, #f00 0%, #f00 50%, transparent 50%, transparent 100%);
+    }
+
+    /* 多层渐变叠加 */
+    .d3 {
+      background:
+        linear-gradient(135deg, transparent 20px, deeppink 0),
+        linear-gradient(-135deg, transparent 20px, deeppink 0),
+        linear-gradient(-45deg, transparent 20px, deeppink 0),
+        linear-gradient(45deg, transparent 20px, deeppink 0);
+      background-size: 50% 50%, 50% 50%, 50% 50%, 50% 50%;
+      background-position: top left, top right, bottom right, bottom left;
+      background-repeat: no-repeat;
+    }
+
+    /* 重复线性渐变 */
+    .d4 {
+      background: repeating-linear-gradient(45deg, #f06a0e, #f06a0e 20px, transparent 20px, transparent 40px);
+    }
+
+    /* 径向渐变 */
+    .d5 {
+      background: radial-gradient(#9c27b0 0%, #9c27b0 40%, #ffeb3b 40.5%, #ffeb3b 100%);
+    }
+
+    /* 优惠券造型1 */
+    .coupon {
+      position: relative;
+      text-align: left;
+      width: 400px;
+      height: 160px;
+      font-size: 100px;
+      color: #fff;
+      font-weight: bold;
+      line-height: 160px;
+      padding-left: 60px;
+      box-sizing: border-box;
+      cursor: pointer;
+      background-image:
+        radial-gradient(circle at 1px 8px, transparent 6px, #f49714 6px, #f49714 0),
+        radial-gradient(circle at 199px 8px, transparent 6px, #f49714 6px, #f49714 0);
+      background-size: 200px 18px;
+      background-position: 0 0, 200px 0;
+      background-repeat-x: no-repeat;
+    }
+
+    .coupon::before {
+      content: '';
+      position: absolute;
+      left: 240px;
+      top: 0;
+      bottom: 0;
+      width: 0;
+      border-left: 1px dashed #fff;
+    }
+
+    .coupon::after {
+      content: "立即领取";
+      position: absolute;
+      font-size: 30px;
+      width: 70px;
+      top: 50%;
+      right: 2%;
+      transform: translate(-50%, -50%);
+      line-height: 40px;
+      letter-spacing: 5px;
+    }
+
+    /* 优惠券造型2 */
+    .wave {
+      position: relative;
+      width: 400px;
+      height: 160px;
+      text-align: left;
+      font-size: 100px;
+      color: #fff;
+      font-weight: bold;
+      line-height: 160px;
+      padding-left: 60px;
+      box-sizing: border-box;
+      cursor: pointer;
+      border-radius: 5px;
+      text-shadow: -2px -2px 2px #333;
+      background: linear-gradient(90deg, #945700 0%, #f49714 100%);
+      filter: drop-shadow(-7px 4px 3px #333);
+    }
+
+    .wave::before,
+    .wave::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+    }
+
+    .wave::before {
+      width: 10px;
+      background-image: radial-gradient(circle at -5px 10px, transparent 12px, #f4f4f4 13px, #f4f4f4 0);
+      background-size: 20px 20px;
+      background-position: 0 15px;
+    }
+
+    .wave::after {
+      width: 15px;
+      background-image: radial-gradient(circle at 15px 10px, #f4f4f4 12px, transparent 13px, transparent 0);
+      background-size: 20px 40px;
+      background-position: 0 15px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="content">
+    <div class="item">
+      <div>透明渐变</div>
+      <div class="item-box d1"></div>
+    </div>
+    <div class="item">
+      <div>实色过渡</div>
+      <div class="item-box d2"></div>
+    </div>
+    <div class="item">
+      <div>多层渐变叠加</div>
+      <div class="item-box d3"></div>
+    </div>
+    <div class="item">
+      <div>重复线性渐变</div>
+      <div class="item-box d4"></div>
+    </div>
+    <div class="item">
+      <div>径向渐变</div>
+      <div class="item-box d5"></div>
+    </div>
+  </div>
+  <div>
+    <div class="item">
+      <div>优惠券造型1</div>
+      <div class="coupon">50</div>
+    </div>
+    <div class="item">
+      <div>优惠券造型2</div>
+      <div class="wave">50</div>
+    </div>
+  </div>
+</body>
+
+</html>
