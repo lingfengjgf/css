@@ -60,7 +60,7 @@
 
     /* 径向渐变 */
     .d5 {
-      background: radial-gradient(#9c27b0 0%, #9c27b0 40%, #ffeb3b 40.5%, #ffeb3b 100%);
+      background: radial-gradient(#9c27b0 0%, #9c27b0 40%, #ffeb3b calc(40% + 2px), #ffeb3b 100%);
     }
 
     /* 优惠券造型1 */
@@ -184,7 +184,52 @@
         background-position-x: -30px, -20px;
       }
     }
+
+    /* 饼图 */
+    .d7 {
+      border-radius: 50%;
+      background: conic-gradient(deeppink 0 30%, yellowgreen 0 70%, teal 0 100%);
+    }
+
+    /* 重复贴图 */
+    .d8 {
+      background: conic-gradient(#000 12.5%, #fff 0 37.5%, #000 0 62.5%, #fff 0 87.5%, #000 0);
+      background-size: 50px 50px;
+    }
+
+    /* 重复角向渐变 */
+    .d9 {
+      background: repeating-conic-gradient(deeppink 0 15deg, yellowgreen 0 30deg);
+      border: 1px solid #ddd;
+    }
+
+    /* 四角对称 */
+    .d10 {
+      background: conic-gradient(from 270deg at 40px 40px, #f4f4f4 0, #f4f4f4 90deg, transparent 90deg, transparent 360deg) #000;
+      background-position: -20px -20px;
+    }
+
+    /* 小单位实现奇特造型1 */
+    .d11 {
+      background: repeating-conic-gradient(#fff, #000, #fff 30deg);
+    }
+
+    /* 小单位实现奇特造型2 */
+    .d12 {
+      background: repeating-conic-gradient(#fff, #000, #fff 0.1deg);
+    }
+
+    /* 小单位实现奇特造型3 */
+    .d13 {
+      background: repeating-radial-gradient(circle at center center, rgb(241, 43, 239), rgb(239, 246, 244) 3px);
+    }
+
+    /* 小单位实现奇特造型4 */
+    .d14 {
+      background: repeating-radial-gradient(ellipse at center center, rgb(75, 154, 239), rgb(64, 135, 228), rgb(54, 117, 214), rgb(43, 100, 200), rgb(33, 88, 180), rgb(22, 60, 160), rgb(10, 50, 140), rgb(1, 23, 120) 0.01px);
+    }
   </style>
+  <link rel="stylesheet" href="./scss/background.css">
 </head>
 
 <body>
@@ -224,8 +269,54 @@
     </div>
   </div>
   <div>
-
+    <div class="item">
+      <div>颜色表盘</div>
+      <div class="item-box d6"></div>
+    </div>
+    <div class="item">
+      <div>饼图</div>
+      <div class="item-box d7"></div>
+    </div>
+    <div class="item">
+      <div>重复贴图</div>
+      <div class="item-box d8"></div>
+    </div>
+    <div class="item">
+      <div>重复角向渐变</div>
+      <div class="item-box d9"></div>
+    </div>
+    <div class="item">
+      <div>四角对称</div>
+      <div class="item-box d10"></div>
+    </div>
   </div>
+  <div>
+    <div class="item">
+      <div>小单位实现奇特造型1</div>
+      <div class="item-box d11"></div>
+    </div>
+    <div class="item">
+      <div>小单位实现奇特造型2</div>
+      <div class="item-box d12"></div>
+    </div>
+    <div class="item">
+      <div>小单位实现奇特造型3</div>
+      <div class="item-box d13"></div>
+    </div>
+    <div class="item">
+      <div>小单位实现奇特造型4</div>
+      <div class="item-box d14"></div>
+    </div>
+  </div>
+
+  <p>1、渐变的颜色可以是透明色。</p>
+  <p>2、渐变可以是从一种颜色直接到另外一种颜色，不需要有过渡状态。</p>
+  <p>3、渐变是可以叠加多层的。</p>
+  <p>4、利用 repeating-linear-gradient 节省代码，实现片段的重复。</p>
+  <p>5、预留衔接空间消除渐变产生的锯齿。</p>
+  <p>6、利用多层渐变的组合，重叠在一起拼出想要的图形。</p>
+  <p>7、利用角向渐变 Repeat 配合 position 完成特殊图案。</p>
+  <p>8、利用小单位实现造型迥异的图案。</p>
 </body>
 
 </html>

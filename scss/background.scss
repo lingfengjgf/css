@@ -1,0 +1,14 @@
+$colors:();
+$totalStops:20;
+
+@for $i from 0 through $totalStops{
+  $colors: append($colors, hsl($i *(360deg/$totalStops), 100%, 50%), comma);
+}
+
+
+.item-box{
+  &.d6{
+    border-radius: 50%;
+    background: conic-gradient($colors);
+  }
+}
