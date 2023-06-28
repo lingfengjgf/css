@@ -1,3 +1,27 @@
+body {
+  background: #f4f4f4;
+  font-size: 20px;
+}
+
+.content {
+  margin-bottom: 30px;
+  display: flex;
+}
+
+.item {
+  text-align: center;
+  margin-right: 20px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.item-box {
+  width: 200px;
+  height: 200px;
+}
+
 .item-box.d6 {
   border-radius: 50%;
   background: conic-gradient(hsl(0, 100%, 50%), hsl(18, 100%, 50%), hsl(36, 100%, 50%), hsl(54, 100%, 50%), hsl(72, 100%, 50%), hsl(90, 100%, 50%), hsl(108, 100%, 50%), hsl(126, 100%, 50%), hsl(144, 100%, 50%), hsl(162, 100%, 50%), hsl(180, 100%, 50%), hsl(198, 100%, 50%), hsl(216, 100%, 50%), hsl(234, 100%, 50%), hsl(252, 100%, 50%), hsl(270, 100%, 50%), hsl(288, 100%, 50%), hsl(306, 100%, 50%), hsl(324, 100%, 50%), hsl(342, 100%, 50%), hsl(0, 100%, 50%));

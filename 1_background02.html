@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./scss/background.css">
+  <style>
+    /* transform 模拟渐变动画 */
+    .d1 {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .d1::before {
+      content: '';
+      position: absolute;
+      top: -100%;
+      bottom: -100%;
+      left: -100%;
+      right: -100%;
+      z-index: -1;
+      background: linear-gradient(45deg, #ffc700 0%, #e91e1e 50%, #6f27b0 100%);
+      background-size: 100% 100%;
+      animation: bgposition 5s infinite linear alternate;
+    }
+
+    @keyframes bgposition {
+      0% {
+        transform: translate(30%, 30%);
+      }
+
+      25% {
+        transform: translate(30%, -30%);
+      }
+
+      50% {
+        transform: translate(-30%, -30%);
+      }
+
+      75% {
+        transform: translate(-30%, 30%);
+      }
+
+      100% {
+        transform: translate(30%, 30%);
+      }
+    }
+
+    /* 滤镜 hue-rotate 实现渐变动画 */
+    .d2 {
+      background: linear-gradient(45deg, #5fddcc, #ff004d);
+      animation: hueRotate 10s infinite alternate;
+    }
+
+    @keyframes hueRotate {
+      0% {
+        filter: hue-rotate(0);
+      }
+
+      100% {
+        filter: hue-rotate(360deg);
+      }
+    }
+
+    /* @property 实现背景色渐变动画 */
+    @property --colorA {
+      syntax: '<color>';
+      inherits: false;
+      initial-value: fuchsia;
+    }
+
+    @property --colorC {
+      syntax: '<color>';
+      inherits: false;
+      initial-value: #f79188;
+    }
+
+    @property --colorF {
+      syntax: '<color>';
+      inherits: false;
+      initial-value: red;
+    }
+
+    .d3 {
+      background: linear-gradient(45deg, var(--colorA), var(--colorC), var(--colorF));
+      animation: property 10s infinite linear;
+    }
+
+    @keyframes property {
+      20% {
+        --colorA: red;
+        --colorC: #a93ee0;
+        --colorF: fuchsia;
+      }
+
+      40% {
+        --colorA: #ff3c41;
+        --colorC: #e228a0;
+        --colorF: #2e4c96;
+      }
+
+      60% {
+        --colorA: orange;
+        --colorC: green;
+        --colorF: teal;
+      }
+
+      80% {
+        --colorA: #ae63e4;
+        --colorC: #0ebeff;
+        --colorF: #efc371;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="content">
+    <div class="item">
+      <div>transform 模拟渐变动画</div>
+      <div class="item-box d1"></div>
+    </div>
+    <div class="item">
+      <div>滤镜 hue-rotate 实现渐变动画</div>
+      <div class="item-box d2"></div>
+    </div>
+    <div class="item">
+      <div>@property 实现渐变动画</div>
+      <div class="item-box d3"></div>
+    </div>
+  </div>
+</body>
+
+</html>

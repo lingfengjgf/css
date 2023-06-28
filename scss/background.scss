@@ -1,6 +1,28 @@
 $colors:();
 $totalStops:20;
+body {
+  background: #f4f4f4;
+  font-size: 20px;
+}
 
+.content {
+  margin-bottom: 30px;
+}
+
+.item {
+  text-align: center;
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.item-box {
+  width: 200px;
+  height: 200px;
+}
 @for $i from 0 through $totalStops{
   $colors: append($colors, hsl($i *(360deg/$totalStops), 100%, 50%), comma);
 }
