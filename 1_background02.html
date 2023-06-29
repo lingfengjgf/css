@@ -113,6 +113,86 @@
         --colorF: #efc371;
       }
     }
+
+    /* 红黄相间的边框 */
+    .d4 {
+      background: linear-gradient(#fff, #fff), #e91e63;
+      background-clip: padding-box, border-box;
+      border: 5px dashed #ffeb3b;
+    }
+
+    /* 渐变文字 */
+    .d5 {
+      line-height: 200px;
+      font-size: 32px;
+      color: transparent;
+      background: linear-gradient(45deg, #ffeb3b, #009688, yellowgreen, pink, #03a9f4, #9c27b0, #8bc34a);
+      -webkit-background-clip: text;
+    }
+
+    /* 渐变文字 fire */
+    .d7 {
+      font-size: 80px;
+      font-weight: bolder;
+      text-align: center;
+      line-height: 200px;
+      color: transparent;
+      background: url(https://images7.alphacoders.com/410/thumb-1920-410661.jpg);
+      background-position: center;
+      background-size: cover;
+      -webkit-background-clip: text;
+    }
+
+    /* 动态背景文字 */
+    .d8 {
+      line-height: 200px;
+      font-size: 32px;
+      color: transparent;
+      background: linear-gradient(45deg, #ffeb3b, #009688, yellowgreen, pink, #03a9f4, #9c27b0, #8bc34a);
+      -webkit-background-clip: text;
+      animation: textbg 3s infinite;
+    }
+
+    @keyframes textbg {
+      100% {
+        filter: hue-rotate(360deg);
+      }
+    }
+
+    /* 高亮文字 */
+    .d9 {
+      position: relative;
+      line-height: 200px;
+      font-size: 32px;
+      color: transparent;
+      background: #e8a95b;
+      -webkit-background-clip: text;
+    }
+
+    .d9::after {
+      content: 'background';
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 5;
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(120deg, transparent 0%, transparent 3rem, white 6rem, transparent 11.15rem, transparent 15rem, rgba(255, 255, 255, 0.3) 20rem, transparent 25rem, transparent 27rem, rgba(255, 255, 255, 0.6) 32rem, white 33rem, rgba(255, 255, 255, 0.3) 33.15rem, transparent 38rem, transparent 40rem, rgba(255, 255, 255, 0.3) 45rem, transparent 50rem, transparent 100%);
+      -webkit-background-clip: text;
+      background-size: 150% 100%;
+      background-repeat: no-repeat;
+      animation: shine 5s infinite linear;
+    }
+
+    @keyframes shine {
+      0% {
+        background-position: 50% 0;
+      }
+
+      100% {
+        background-position: -190% 0;
+      }
+    }
   </style>
 </head>
 
@@ -129,6 +209,30 @@
     <div class="item">
       <div>@property 实现渐变动画</div>
       <div class="item-box d3"></div>
+    </div>
+  </div>
+  <div class="content">
+    <div class="item">
+      <div>红黄相间的边框</div>
+      <div class="item-box d4"></div>
+    </div>
+    <div class="item">
+      <div>渐变文字</div>
+      <div class="item-box d5">background</div>
+    </div>
+    <div class="item">
+      <div>渐变文字</div>
+      <div class="item-box d7">FIRE</div>
+    </div>
+    <div class="item">
+      <div>动态背景文字</div>
+      <div class="item-box d8">background</div>
+    </div>
+    <div class="item">
+      <div>高亮文字</div>
+      <div style="background: #455A64;">
+        <div class="item-box d9">background</div>
+      </div>
     </div>
   </div>
 </body>
