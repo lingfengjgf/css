@@ -193,6 +193,50 @@
         background-position: -190% 0;
       }
     }
+
+    /* hover动效 */
+    .d10 {
+      background: linear-gradient(90deg, #ff3c41, #fc0, #0ebeff);
+      background-size: 0 3px;
+      background-repeat: no-repeat;
+      background-position: 0 100%;
+      transition: 1s all;
+      color: #0cc;
+    }
+
+    .d10:hover {
+      background-size: 100% 3px;
+      color: #000;
+    }
+
+    /* 滚动视差 */
+    .d11 {
+      overflow-y: scroll;
+      font-size: 40px;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    .d11>div {
+      height: 200px;
+      line-height: 200px;
+      text-align: center;
+    }
+
+    .img1 {
+      background: url(./image/bg1.jpg) center no-repeat;
+      background-attachment: fixed;
+    }
+
+    .img2 {
+      background: url(./image/bg4.jpg) center no-repeat;
+      background-attachment: fixed;
+    }
+
+    .img3 {
+      background: url(./image/bg7.jpg) center no-repeat;
+      background-attachment: fixed;
+    }
   </style>
 </head>
 
@@ -232,6 +276,21 @@
       <div>高亮文字</div>
       <div style="background: #455A64;">
         <div class="item-box d9">background</div>
+      </div>
+    </div>
+  </div>
+  <div class="content">
+    <div class="item">
+      <div>hover动效</div>
+      <div class="item-box"><a class="d10">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita sunt
+          minima odio eligendi unde aut!</a></div>
+    </div>
+    <div class="item">
+      <div>滚动视差</div>
+      <div class="item-box d11">
+        <div class="img1">IMG1</div>
+        <div class="img2">IMG2</div>
+        <div class="img3">IMG3</div>
       </div>
     </div>
   </div>
