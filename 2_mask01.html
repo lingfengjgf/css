@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./scss/mask.css">
+  <style>
+    /* mask实现切角 */
+    .d1 {
+      width: 192px;
+      height: 120px;
+      background: url(./image/bg1.jpg);
+      background-size: contain;
+      -webkit-mask: linear-gradient(135deg, transparent 15px, #fff 0) top left,
+        linear-gradient(-135deg, transparent 15px, #fff 0) top right,
+        linear-gradient(-45deg, transparent 15px, #fff 0) bottom right,
+        linear-gradient(45deg, transparent 15px, #fff 0) bottom left;
+      -webkit-mask-size: 50% 50%;
+      -webkit-mask-repeat: no-repeat;
+    }
+
+    /* mask实现内切圆角 */
+    .d2 {
+      width: 240px;
+      height: 120px;
+      background: linear-gradient(45deg, #2179f5, #e91e63);
+      -webkit-mask: radial-gradient(circle at 100% 100%, transparent 0, transparent 12px, #2179f5 13px),
+        radial-gradient(circle at 0 0, transparent 0, transparent 12px, #2179f5 13px),
+        radial-gradient(circle at 100% 0, transparent 0, transparent 12px, #2179f5 13px),
+        radial-gradient(circle at 0 100%, transparent 0, transparent 12px, #2179f5 13px);
+      -webkit-mask-repeat: no-repeat;
+      -webkit-mask-position: right bottom, left top, right top, left bottom;
+      -webkit-mask-size: 70% 70%;
+    }
+
+    /* 图片融合 */
+    .d3 {
+      width: 192px;
+      height: 120px;
+      position: relative;
+      background: url(./image/bg1.jpg);
+      background-size: contain;
+    }
+
+    .d3::before {
+      position: absolute;
+      content: '';
+      inset: 0;
+      background: url(./image/bg4.jpg);
+      background-size: contain;
+      -webkit-mask: linear-gradient(45deg, #000 40%, transparent 60%);
+    }
+
+    /* 内容切换 */
+    .d4 {
+      width: 192px;
+      height: 120px;
+      background: url(./image/bg1.jpg);
+      background-size: contain;
+    }
+
+    .inner {
+      height: 100%;
+      background: url(./image/bg4.jpg);
+      background-size: contain;
+      -webkit-mask: linear-gradient(90deg, #fff 0%, #fff 50%, transparent 50%, transparent 100%);
+      -webkit-mask-size: 200% 100%;
+      animation: maskChange 2s infinite alternate linear;
+    }
+
+    @keyframes maskChange {
+      0% {
+        -webkit-mask-position: -100% 0;
+      }
+
+      100% {
+        -webkit-mask-position: 0 0;
+      }
+    }
+
+    /* mask组合 */
+    .d5 {
+      width: 120px;
+      height: 120px;
+      background: #000;
+      -webkit-mask: radial-gradient(circle at 100% 0, #000, #000 120px, transparent 120px),
+        radial-gradient(circle at 0 0, #000, #000 120px, transparent 120px);
+      -webkit-mask-composite: source-in;
+      /* -webkit-mask-composite: destination-in; */
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <div class="name">mask实现切角</div>
+    <div class="d1"></div>
+  </div>
+  <div class="box">
+    <div class="name">mask实现内切圆角</div>
+    <div class="d2"></div>
+  </div>
+  <div class="box">
+    <div class="name">图片融合</div>
+    <div class="d3"></div>
+  </div>
+  <div class="box">
+    <div class="name">内容切换</div>
+    <div class="d4">
+      <div class="inner"></div>
+    </div>
+  </div>
+  <div class="box">
+    <div class="name">mask组合</div>
+    <div class="d5">
+    </div>
+  </div>
+</body>
+
+</html>
