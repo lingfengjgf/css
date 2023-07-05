@@ -5,11 +5,11 @@ body {
 
 .content {
   margin-bottom: 30px;
-  display: flex;
 }
 
 .item {
   text-align: center;
+  display: inline-block;
   margin-right: 20px;
 }
 

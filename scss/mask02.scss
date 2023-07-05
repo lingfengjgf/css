@@ -1,0 +1,61 @@
+@property --perang {
+  syntax: '<percentage> | <angle>';
+  inherits: false;
+  initial-value: 360deg;
+}
+
+.container {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  cursor: pointer;
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+}
+
+.bg::after {
+  content: '';
+  position: absolute;
+  inset: 20px 0;
+  z-index: 6;
+  background: linear-gradient(transparent, transparent calc(50% - .5px), #333 calc(50% - .5px), #333 calc(50% + .5px), transparent calc(50% + .5px), transparent),
+    linear-gradient(120deg, transparent, transparent calc(50% - 1px), #333 calc(50% - .5px), #333 calc(50% + .5px), transparent calc(50% + 1px), transparent),
+    linear-gradient(240deg, transparent, transparent calc(50% - 1px), #333 calc(50% - .5px), #333 calc(50% + .5px), transparent calc(50% + 1px), transparent);
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+}
+
+li {
+  position: absolute;
+  width: 150px;
+  height: 260px;
+  background: #fff;
+  filter: drop-shadow(0 0 .5px #333)
+    drop-shadow(0 0 .5px #333)
+    drop-shadow(0 0 .5px #333);
+  translate: -50% -50%;
+  left: 50%;
+  top: 50%;
+  &::after,&::before{
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: inherit;
+  }
+  &::before{
+    transform: rotate(120deg);
+  }
+  &::after{
+    transform: rotate(240deg);
+  }
+}
+@for $i from 1 to 5 {
+  li:nth-child(#{$i}) {
+      z-index: #{$i};
+      width:  #{(1 - $i / 5) * 150}px;
+      height: #{(1 - $i / 5) * 260}px;
+  }
+}
+

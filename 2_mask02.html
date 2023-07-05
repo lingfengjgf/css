@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./scss/mask.css">
+  <link rel="stylesheet" href="./scss/mask02.css">
+  <style>
+    /* 内容切换 */
+    @property --per {
+      syntax: '<percentage>';
+      inherits: false;
+      initial-value: -10%;
+    }
+
+    .d1 {
+      width: 192px;
+      height: 120px;
+      background: url(./image/bg1.jpg);
+      background-size: contain;
+      position: relative;
+    }
+
+    .d1::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: url(./image/bg4.jpg);
+      background-size: contain;
+      -webkit-mask: conic-gradient(#000 0, #000 var(--per), transparent calc(var(--per) + 10%), transparent);
+      animation: maskRotate 1.2s ease-in forwards;
+    }
+
+    @keyframes maskRotate {
+      0% {
+        --per: -10%
+      }
+
+      100% {
+        --per: 100%
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <div class="name">内容切换</div>
+    <div class="d1"></div>
+  </div>
+  <div class="container">
+    <ul class="bg">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+    <div class="content"></div>
+  </div>
+</body>
+
+</html>

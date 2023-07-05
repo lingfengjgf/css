@@ -1,0 +1,73 @@
+@property --perang {
+  syntax: "<percentage> | <angle>";
+  inherits: false;
+  initial-value: 360deg;
+}
+.container {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  cursor: pointer;
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+}
+
+.bg::after {
+  content: "";
+  position: absolute;
+  inset: 20px 0;
+  z-index: 6;
+  background: linear-gradient(transparent, transparent calc(50% - 0.5px), #333 calc(50% - 0.5px), #333 calc(50% + 0.5px), transparent calc(50% + 0.5px), transparent), linear-gradient(120deg, transparent, transparent calc(50% - 1px), #333 calc(50% - 0.5px), #333 calc(50% + 0.5px), transparent calc(50% + 1px), transparent), linear-gradient(240deg, transparent, transparent calc(50% - 1px), #333 calc(50% - 0.5px), #333 calc(50% + 0.5px), transparent calc(50% + 1px), transparent);
+  -webkit-clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+          clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+}
+
+li {
+  position: absolute;
+  width: 150px;
+  height: 260px;
+  background: #fff;
+  filter: drop-shadow(0 0 0.5px #333) drop-shadow(0 0 0.5px #333) drop-shadow(0 0 0.5px #333);
+  translate: -50% -50%;
+  left: 50%;
+  top: 50%;
+}
+li::after, li::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: inherit;
+}
+li::before {
+  transform: rotate(120deg);
+}
+li::after {
+  transform: rotate(240deg);
+}
+
+li:nth-child(1) {
+  z-index: 1;
+  width: 120px;
+  height: 208px;
+}
+
+li:nth-child(2) {
+  z-index: 2;
+  width: 90px;
+  height: 156px;
+}
+
+li:nth-child(3) {
+  z-index: 3;
+  width: 60px;
+  height: 104px;
+}
+
+li:nth-child(4) {
+  z-index: 4;
+  width: 30px;
+  height: 52px;
+}/*# sourceMappingURL=mask02.css.map */
