@@ -13,12 +13,13 @@
 .bg {
   position: absolute;
   inset: 0;
+  list-style: none;
 }
 
 .bg::after {
   content: "";
   position: absolute;
-  inset: 20px 0;
+  inset: 4px 0;
   z-index: 6;
   background: linear-gradient(transparent, transparent calc(50% - 0.5px), #333 calc(50% - 0.5px), #333 calc(50% + 0.5px), transparent calc(50% + 0.5px), transparent), linear-gradient(120deg, transparent, transparent calc(50% - 1px), #333 calc(50% - 0.5px), #333 calc(50% + 0.5px), transparent calc(50% + 1px), transparent), linear-gradient(240deg, transparent, transparent calc(50% - 1px), #333 calc(50% - 0.5px), #333 calc(50% + 0.5px), transparent calc(50% + 1px), transparent);
   -webkit-clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
@@ -70,4 +71,246 @@ li:nth-child(4) {
   z-index: 4;
   width: 30px;
   height: 52px;
+}
+
+.content {
+  position: absolute;
+  inset: 20px 0;
+  z-index: 10;
+  -webkit-mask: conic-gradient(#000, #000 var(--perang), transparent var(--perang), transparent 360deg);
+          mask: conic-gradient(#000, #000 var(--perang), transparent var(--perang), transparent 360deg);
+}
+.content:hover {
+  animation: hoverPie 0.6s ease-in-out;
+}
+.content::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(241, 94, 174, 0.8), rgba(255, 152, 0, 0.8));
+  -webkit-clip-path: polygon(43% 36%, 69% 12%, 99% 50%, 71% 94%, 30% 90%, 5% 50%);
+          clip-path: polygon(43% 36%, 69% 12%, 99% 50%, 71% 94%, 30% 90%, 5% 50%);
+}
+
+@keyframes hoverPie {
+  0% {
+    --perang:0deg ;
+  }
+  100% {
+    --perang:360deg ;
+  }
+}
+.d3 {
+  width: 640px;
+  height: 360px;
+  background: url(../image/lolbg.jpeg);
+  background-size: contain;
+  display: flex;
+  position: relative;
+}
+
+@keyframes move {
+  100% {
+    transform: translate(85%, 0);
+  }
+}
+.barrage-container {
+  position: absolute;
+  inset: 0;
+  -webkit-mask: radial-gradient(circle at 100px 100px, transparent 60px, #fff 80px, #fff 100%);
+          mask: radial-gradient(circle at 100px 100px, transparent 60px, #fff 80px, #fff 100%);
+  animation: mask 6s infinite alternate;
+}
+
+@keyframes mask {
+  100% {
+    -webkit-mask-position: 500px 0;
+            mask-position: 500px 0;
+  }
+}
+.barrage {
+  position: absolute;
+  color: #fff;
+  font-size: 24px;
+  opacity: 0.8;
+}
+
+.barrage:nth-child(1) {
+  color: rgb(255, 255, calc(1 * 10));
+  top: calc(1 * 18px);
+  animation: move calc(0.2s + 10s) infinite calc(2 * -1s) linear;
+}
+
+.barrage:nth-child(2) {
+  color: rgb(255, 255, calc(2 * 10));
+  top: calc(2 * 18px);
+  animation: move calc(0.4s + 10s) infinite calc(4 * -1s) linear;
+}
+
+.barrage:nth-child(3) {
+  color: rgb(255, 255, calc(3 * 10));
+  top: calc(3 * 18px);
+  animation: move calc(0.6s + 10s) infinite calc(6 * -1s) linear;
+}
+
+.barrage:nth-child(4) {
+  color: rgb(255, 255, calc(4 * 10));
+  top: calc(4 * 18px);
+  animation: move calc(0.8s + 10s) infinite calc(8 * -1s) linear;
+}
+
+.barrage:nth-child(5) {
+  color: rgb(255, 255, calc(5 * 10));
+  top: calc(5 * 18px);
+  animation: move calc(1s + 10s) infinite calc(10 * -1s) linear;
+}
+
+.barrage:nth-child(6) {
+  color: rgb(255, 255, calc(6 * 10));
+  top: calc(6 * 18px);
+  animation: move calc(1.2s + 10s) infinite calc(12 * -1s) linear;
+}
+
+.barrage:nth-child(7) {
+  color: rgb(255, 255, calc(7 * 10));
+  top: calc(7 * 18px);
+  animation: move calc(1.4s + 10s) infinite calc(14 * -1s) linear;
+}
+
+.barrage:nth-child(8) {
+  color: rgb(255, 255, calc(8 * 10));
+  top: calc(8 * 18px);
+  animation: move calc(1.6s + 10s) infinite calc(16 * -1s) linear;
+}
+
+.barrage:nth-child(9) {
+  color: rgb(255, 255, calc(9 * 10));
+  top: calc(9 * 18px);
+  animation: move calc(1.8s + 10s) infinite calc(18 * -1s) linear;
+}
+
+.barrage:nth-child(10) {
+  color: rgb(255, 255, calc(10 * 10));
+  top: calc(0 * 18px);
+  animation: move calc(2s + 10s) infinite calc(20 * -1s) linear;
+}
+
+.barrage:nth-child(11) {
+  color: rgb(255, 255, calc(11 * 10));
+  top: calc(1 * 18px);
+  animation: move calc(2.2s + 10s) infinite calc(22 * -1s) linear;
+}
+
+.barrage:nth-child(12) {
+  color: rgb(255, 255, calc(12 * 10));
+  top: calc(2 * 18px);
+  animation: move calc(2.4s + 10s) infinite calc(24 * -1s) linear;
+}
+
+.barrage:nth-child(13) {
+  color: rgb(255, 255, calc(13 * 10));
+  top: calc(3 * 18px);
+  animation: move calc(2.6s + 10s) infinite calc(26 * -1s) linear;
+}
+
+.barrage:nth-child(14) {
+  color: rgb(255, 255, calc(14 * 10));
+  top: calc(4 * 18px);
+  animation: move calc(2.8s + 10s) infinite calc(28 * -1s) linear;
+}
+
+.barrage:nth-child(15) {
+  color: rgb(255, 255, calc(15 * 10));
+  top: calc(5 * 18px);
+  animation: move calc(3s + 10s) infinite calc(30 * -1s) linear;
+}
+
+.barrage:nth-child(16) {
+  color: rgb(255, 255, calc(16 * 10));
+  top: calc(6 * 18px);
+  animation: move calc(3.2s + 10s) infinite calc(32 * -1s) linear;
+}
+
+.barrage:nth-child(17) {
+  color: rgb(255, 255, calc(17 * 10));
+  top: calc(7 * 18px);
+  animation: move calc(3.4s + 10s) infinite calc(34 * -1s) linear;
+}
+
+.barrage:nth-child(18) {
+  color: rgb(255, 255, calc(18 * 10));
+  top: calc(8 * 18px);
+  animation: move calc(3.6s + 10s) infinite calc(36 * -1s) linear;
+}
+
+.barrage:nth-child(19) {
+  color: rgb(255, 255, calc(19 * 10));
+  top: calc(9 * 18px);
+  animation: move calc(3.8s + 10s) infinite calc(38 * -1s) linear;
+}
+
+.barrage:nth-child(20) {
+  color: rgb(255, 255, calc(20 * 10));
+  top: calc(0 * 18px);
+  animation: move calc(4s + 10s) infinite calc(40 * -1s) linear;
+}
+
+.barrage:nth-child(21) {
+  color: rgb(255, 255, calc(21 * 10));
+  top: calc(1 * 18px);
+  animation: move calc(4.2s + 10s) infinite calc(42 * -1s) linear;
+}
+
+.barrage:nth-child(22) {
+  color: rgb(255, 255, calc(22 * 10));
+  top: calc(2 * 18px);
+  animation: move calc(4.4s + 10s) infinite calc(44 * -1s) linear;
+}
+
+.barrage:nth-child(23) {
+  color: rgb(255, 255, calc(23 * 10));
+  top: calc(3 * 18px);
+  animation: move calc(4.6s + 10s) infinite calc(46 * -1s) linear;
+}
+
+.barrage:nth-child(24) {
+  color: rgb(255, 255, calc(24 * 10));
+  top: calc(4 * 18px);
+  animation: move calc(4.8s + 10s) infinite calc(48 * -1s) linear;
+}
+
+.barrage:nth-child(25) {
+  color: rgb(255, 255, calc(25 * 10));
+  top: calc(5 * 18px);
+  animation: move calc(5s + 10s) infinite calc(50 * -1s) linear;
+}
+
+.barrage:nth-child(26) {
+  color: rgb(255, 255, calc(26 * 10));
+  top: calc(6 * 18px);
+  animation: move calc(5.2s + 10s) infinite calc(52 * -1s) linear;
+}
+
+.barrage:nth-child(27) {
+  color: rgb(255, 255, calc(27 * 10));
+  top: calc(7 * 18px);
+  animation: move calc(5.4s + 10s) infinite calc(54 * -1s) linear;
+}
+
+.barrage:nth-child(28) {
+  color: rgb(255, 255, calc(28 * 10));
+  top: calc(8 * 18px);
+  animation: move calc(5.6s + 10s) infinite calc(56 * -1s) linear;
+}
+
+.barrage:nth-child(29) {
+  color: rgb(255, 255, calc(29 * 10));
+  top: calc(9 * 18px);
+  animation: move calc(5.8s + 10s) infinite calc(58 * -1s) linear;
+}
+
+.barrage:nth-child(30) {
+  color: rgb(255, 255, calc(30 * 10));
+  top: calc(0 * 18px);
+  animation: move calc(6s + 10s) infinite calc(60 * -1s) linear;
 }/*# sourceMappingURL=mask02.css.map */

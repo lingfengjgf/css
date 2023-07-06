@@ -14,12 +14,13 @@
 .bg {
   position: absolute;
   inset: 0;
+  list-style: none;
 }
 
 .bg::after {
   content: '';
   position: absolute;
-  inset: 20px 0;
+  inset: 4px 0;
   z-index: 6;
   background: linear-gradient(transparent, transparent calc(50% - .5px), #333 calc(50% - .5px), #333 calc(50% + .5px), transparent calc(50% + .5px), transparent),
     linear-gradient(120deg, transparent, transparent calc(50% - 1px), #333 calc(50% - .5px), #333 calc(50% + .5px), transparent calc(50% + 1px), transparent),
@@ -59,3 +60,71 @@ li {
   }
 }
 
+.content{
+  position: absolute;
+  inset: 20px 0;
+  z-index: 10;
+  mask: conic-gradient(#000,#000 var(--perang),transparent var(--perang),transparent 360deg);
+  &:hover{
+    animation: hoverPie 0.6s ease-in-out;
+  }
+  &::before{
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(rgba(241,94,174,.8),rgba(255,152,0,.8));
+    clip-path: polygon(43% 36%,69% 12%,99% 50%,71% 94%,30% 90%,5% 50%);
+  }
+}
+
+@keyframes hoverPie {
+  0%{
+    --perang:0deg
+  }
+  100%{
+    --perang:360deg
+  }
+}
+
+.d3{
+  width: 640px;
+  height: 360px;
+  background: url(../image/lolbg.jpeg);
+  background-size: contain;
+  display: flex;
+  position: relative;
+}
+
+@keyframes move {
+  100%{
+    transform: translate(85%,0);
+  }
+}
+
+.barrage-container{
+  position: absolute;
+  inset: 0;
+  mask: radial-gradient(circle at 100px 100px,transparent 60px,#fff 80px,#fff 100%);
+  animation: mask 6s infinite alternate;
+}
+
+@keyframes mask {
+  100%{
+    mask-position: 500px 0;
+  }
+}
+
+.barrage{
+  position: absolute;
+  color: #fff;
+  font-size: 24px;
+  opacity: .8;
+}
+
+@for $i from 1 to 31 {
+  .barrage:nth-child(#{$i}){
+    color: rgb(255, 255, calc(#{$i} * 10));
+    top:calc(#{$i % 10} * 18px);
+    animation: move calc(#{$i * 0.2}s + 10s) infinite calc(#{$i * 2} * -1s) linear;
+  }
+}
