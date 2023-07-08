@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./scss/mask.css">
+  <style>
+    .d1 {
+      width: 240px;
+      height: 80px;
+      background: linear-gradient(45deg, #04e6fb, #65ff9a);
+      clip-path: polygon(0 0, 30px 50%, 0 100%, calc(100% - 30px) 100%, 100% 50%, calc(100% - 30px) 0);
+    }
+
+    .gta {
+      box-sizing: border-box;
+      padding: 10px;
+      background: black;
+      width: 450px;
+      height: 500px;
+      border: 1px solid #c9b473;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr .7fr .3fr 1fr;
+      grid-template-rows: 20% 40% 20% 20%;
+      grid-template-areas:
+        'one two two three'
+        'four five five five'
+        'six five five five'
+        'six seven eight eight';
+    }
+
+    .gta-box:first-child,
+    .gta-box:nth-child(2),
+    .gta-box:nth-child(3) .gta-img {
+      width: 120%;
+      height: 120%;
+    }
+
+    .gta-box:first-child {
+      grid-area: one;
+      clip-path: polygon(0% 0%, 78.24% 0%, 88.16% 92%, 0% 75.5%);
+    }
+
+    .gta-box:nth-child(2) {
+      grid-area: two;
+      clip-path: polygon(0% 0%, 91.28% 0%, 81.45% 91.13%, 9.89% 93.93%);
+    }
+
+    .gta-box:nth-child(3) {
+      grid-area: three;
+      clip-path: polygon(15.05% 0%, 100% 0%, 99.35% 91.7%, 3.08% 108.48%);
+    }
+
+    .gta-box:nth-child(4) {
+      grid-area: four;
+      clip-path: polygon(0% -0.02%, 106.34% 9.98%, 121.32% 65.63%, 99.66% 109.89%, 1.86% 124.41%);
+    }
+
+    .gta-box:nth-child(4) .gta-img {
+      width: 130%;
+      height: 135%;
+    }
+
+    .gta-box:nth-child(5) {
+      grid-area: five;
+      clip-path: polygon(6.4% 6.48%, 47.24% 5.89%, 100% 0%, 98.41% 96.85%, 53.37% 100%, 53% 63.21%, 3.23% 73.02%, 14.30% 44.04%);
+    }
+
+    .gta-box:nth-child(6) {
+      grid-area: six;
+      clip-path: polygon(2.14% 29.3%, 99.34% 15.42%, 98.14% 100.82%, 1.57% 101.2%);
+    }
+
+    .gta-box:nth-child(7) {
+      grid-area: seven;
+      clip-path: polygon(7.92% 33.47%, 96.31% 23.39%, 95.38% 100%, 5.30% 100.85%);
+    }
+
+    .gta-box:nth-child(8) {
+      grid-area: eight;
+      clip-path: polygon(2.5% 22.35%, 100% 0%, 100% 100%, 1.55% 100%);
+    }
+
+    .gta-box:nth-child(9) {
+      grid-row-start: 3;
+      grid-row-end: 4;
+      grid-column-start: 2;
+      grid-column-end: 4;
+      clip-path: polygon(5.94% 28.66%, 100.61% -0.67%, 101.1% 108.57%, 5.4% 126.28%);
+    }
+
+    .gta-box:nth-child(9) .gta-img {
+      height: 130%;
+    }
+
+    .gta-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 70% 20%;
+      cursor: pointer;
+      transition: .25s;
+    }
+
+    .gta-img:hover {
+      transform: scale(120%);
+    }
+
+    .clip {
+      width: 200px;
+      height: 200px;
+      margin-top: 20px;
+      background: #fc0;
+      clip-path: polygon(0 0, 1000% 0, 1000% 100%, 0 100%);
+    }
+
+    .move {
+      background: gray;
+      width: 80px;
+      height: 80px;
+      position: absolute;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box d1"></div>
+  <div class="gta">
+    <div class="gta-box">
+      <img class="gta-img" src="./image/GTA01.webp">
+    </div>
+    <div class="gta-box">
+      <img class="gta-img" src="./image/GTA02.jpg">
+    </div>
+    <div class="gta-box">
+      <img class="gta-img" src="./image/GTA03.jpg">
+    </div>
+    <div class="gta-box">
+      <img class="gta-img" src="./image/GTA04.webp">
+    </div>
+    <div class="gta-box">
+      <img class="gta-img" src="./image/GTA05.webp">
+    </div>
+    <div class="gta-box">
+      <img class="gta-img" src="./image/GTA06.jpeg">
+    </div>
+    <div class="gta-box">
+      <img class="gta-img" src="./image/GTA07.jpg">
+    </div>
+    <div class="gta-box">
+      <img class="gta-img" src="./image/GTA08.webp">
+    </div>
+    <div class="gta-box">
+      <img class="gta-img" src="./image/GTA09.webp">
+    </div>
+  </div>
+  <!-- 任意区域裁剪 -->
+  <div class="clip">
+    <div class="move"></div>
+  </div>
+</body>
+
+<script>
+  let moveElm = document.querySelector('.move'); //带拖拽元素
+  let dragging; //是否激活拖拽状态
+  let tLeft, tTop; //鼠标按下时相对拖拽元素的位移
+
+  // 监听鼠标按下事件
+  document.addEventListener('mousedown', (e) => {
+    if (e.target === moveElm) {
+      dragging = true;
+      var moveElmRect = moveElm.getBoundingClientRect();
+      tLeft = e.clientX - moveElmRect.left;
+      tTop = e.clientY - moveElmRect.top;
+    }
+  })
+
+  // 监听鼠标放下事件
+  document.addEventListener('mouseup', (e) => {
+    dragging = false;
+  })
+
+  // 监听鼠标移动事件
+  document.addEventListener('mousemove', (e) => {
+    if (dragging) {
+      let moveX = e.clientX - tLeft;
+      let moveY = e.clientY - tTop;
+      moveElm.style.left = moveX + 'px';
+      moveElm.style.top = moveY + 'px';
+    }
+  })
+
+</script>
+
+</html>
